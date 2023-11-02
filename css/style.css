@@ -1,0 +1,42 @@
+:root {
+    --base: #2D2D2D;
+    --accent: #3762bf;
+    --accent-transparent: rgba(55,98,191,0.9);
+    --accent-lt: #f2f2f2;
+    --accent-dk: #818181;
+    --rounded-corner: 15px;
+    
+    
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e0e0e0;
+}
+
+.center {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.player {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    font-size: 3rem;
+    width:10rem;
+    padding:1rem;
+    border:none;
+    transition-duration: 0.1s;
+
+    border-radius: 22px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow:  5px 5px 10px #c1c1c1,
+             -5px -5px 10px #ffffff;
+}
