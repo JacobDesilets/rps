@@ -1,17 +1,16 @@
 :root {
     --base: #2D2D2D;
-    --accent: #3762bf;
-    --accent-transparent: rgba(55,98,191,0.9);
+    --accent: #cf8019;
     --accent-lt: #f2f2f2;
     --accent-dk: #818181;
-    --rounded-corner: 15px;
-    
-    
+    --rounded-corner: 10px;
+    --win: #32a852;
+    --loss: #a83832;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #e0e0e0;
+    font-family: 'Inter', sans-serif, 'Segoe UI Emoji';
+    background-color: var(--base);
 }
 
 .center {
@@ -19,6 +18,9 @@ body {
     justify-content: center;
     align-items: center;
     height:100vh;
+    gap:3rem;
+    flex-direction: column;
+    color:var(--accent-lt);
 }
 
 .player {
@@ -31,31 +33,71 @@ body {
 .rps {
     display:flex;
     gap:2.5rem;
+    justify-content: center;
 }
 
-.btn {
-    font-size: 3rem;
-    width:10rem;
-    padding:1rem;
-    border:none;
-
-    border-radius: 22px;
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
-    box-shadow:  5px 5px 10px #c1c1c1,
-             -5px -5px 10px #ffffff;
+.btn { 
+    border-radius: var(--rounded-corner);
+    padding: 10px 20px;
+    background: var(--base);
+    border: 2px solid var(--accent-lt);
+    box-shadow: 2px 2px var(--accent-lt);
+    font-size: 4rem;
+    width: 10rem;
 }
 
-/* .btn:hover {
-    border-radius: 22px;
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
-    box-shadow:  5px 5px 10px #c1c1c1,
-             -5px -5px 10px #ffffff;
-} */
+.btn:hover{
+    background: var(--win);
+}
 
 .btn:active {
-    border-radius: 22px;
-    background: #e0e0e0;
-    box-shadow: inset 5px 5px 10px #c1c1c1,
-            inset -5px -5px 10px #ffffff;
-    opacity: 75%;
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+.comp-choice {
+    width:10rem;
+    border-radius: var(--rounded-corner);
+    padding: 10px 20px;
+    background: var(--base);
+    border: 2px solid var(--accent-lt);
+    font-size: 4rem;
+    display:flex;
+    justify-content: center;
+}
+
+.grid-container {
+    display:grid;
+    grid-template-rows: auto;
+    background-color: var(--base-dk);
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid var(--accent-lt);
+    border-radius: var(--rounded-corner);
+    overflow: hidden;
+    font-size: 4rem;
+}
+
+.grid-item {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    overflow: hidden;
+}
+
+.win {
+    background:var(--win);
+}
+
+.loss {
+    background: var(--loss);
+}
+
+h1{
+    text-align: center;
+    color:var(--accent-dk);
+}
+
+.result {
+    font-size: 4rem;
 }

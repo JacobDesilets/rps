@@ -21,11 +21,32 @@
         <section class="player">
             <h1>Your choice:</h1>
             <div class="rps">
-                <button class="btn">&#129704;</button>
-                <button class="btn">&#128221;</button>
-                <button class="btn">&#9986;</button>
+                <button class="btn" onclick="rps(0);">&#9994;</button>
+                <button class="btn" onclick="rps(1);">&#9995;</button>
+                <button class="btn" onclick="rps(2);">&#9996;</button>
+            </div>
+        </section>
+        <section class="computer">
+            <h1>Computer's choice:</h1>
+            <div class='rps'>
+                <span class="comp-choice" id="compChoice">
+                    ?
+                </span>
+            </div>
+        </section>
+        <section>
+            <h1>Result:</h1>
+            <span class="result" id="result">Result here</span>
+        </section>
+        <section class="record">
+            <h1>Your record:</h1>
+            <div class="grid-container">
+                <span class='grid-item win'>Wins</span><span class='grid-item loss'>Losses</span><span class='grid-item'>Draws</span>
+                <span class='grid-item win' id="winCount">0</span><span class='grid-item loss' id="lossCount">0</span><span class='grid-item' id="drawCount">0</span>
             </div>
         </section>
     </div>
+
+    <script src="rps.js"></script>
 </body>
 </html>
