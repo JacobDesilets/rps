@@ -1,6 +1,6 @@
 let w = 0;
 let l = 0;
-let d = 0
+let d = 0;
 
 // 0 rock
 // 1 paper
@@ -11,6 +11,7 @@ let result = document.getElementById("result");
 let winCounter = document.getElementById("winCount");
 let lossCounter = document.getElementById("lossCount");
 let drawCounter = document.getElementById("drawCount");
+let body = document.getElementById("body");
 
 let emojis = ['&#9994;', '&#9995;', '&#9996;'];
 
@@ -23,38 +24,29 @@ function rps(playerChoice) {
     switch(playerChoice) {
         case 0: // rock
             if(compChoice === 0) {
-                d += 1;
-                result.innerHTML = `${emojis[playerChoice]} ties ${emojis[compChoice]}`;
+                tie(playerChoice, compChoice);
             } else if(compChoice === 1) {
-                l += 1;
-                result.innerHTML = `${emojis[playerChoice]} loses to ${emojis[compChoice]}`;
+                lose(playerChoice, compChoice);
             } else {
-                w += 1;
-                result.innerHTML = `${emojis[playerChoice]} beats ${emojis[compChoice]}`;
+                win(playerChoice, compChoice);
             }
             break;
         case 1:  // paper
             if(compChoice === 0) {
-                w += 1;
-                result.innerHTML = `${emojis[playerChoice]} beats ${emojis[compChoice]}`;
+                win(playerChoice, compChoice);
             } else if(compChoice === 1) {
-                d += 1;
-                result.innerHTML = `${emojis[playerChoice]} ties ${emojis[compChoice]}`;
+                tie(playerChoice, compChoice);
             } else {
-                l += 1;
-                result.innerHTML = `${emojis[playerChoice]} loses to ${emojis[compChoice]}`;
+                lose(playerChoice, compChoice);
             }
             break;
         case 2: // scissors
             if(compChoice === 0) {
-                l += 1;
-                result.innerHTML = `${emojis[playerChoice]} loses to ${emojis[compChoice]}`;
+                lose(playerChoice, compChoice);
             } else if(compChoice === 1) {
-                w += 1;
-                result.innerHTML = `${emojis[playerChoice]} beats ${emojis[compChoice]}`;
+                win(playerChoice, compChoice);
             } else {
-                d += 1;
-                result.innerHTML = `${emojis[playerChoice]} ties ${emojis[compChoice]}`;
+                tie(playerChoice, compChoice);
             }
             break;
     }
@@ -62,4 +54,22 @@ function rps(playerChoice) {
     winCounter.innerHTML = w;
     lossCounter.innerHTML = l;
     drawCounter.innerHTML = d;
+}
+
+function win(pc, cc) {
+    w += 1;
+    result.innerHTML = `${emojis[pc]} beats ${emojis[cc]}`;
+    body.style.background = 'linear-gradient(180deg, var(--base), var(--win)';
+}
+
+function tie(pc, cc) {
+    d += 1;
+    result.innerHTML = `${emojis[pc]} ties ${emojis[cc]}`;
+    body.style.background = 'linear-gradient(180deg, var(--base), var(--accent-dk)';
+}
+
+function lose(pc, cc) {
+    l += 1;
+    result.innerHTML = `${emojis[pc]} loses to ${emojis[cc]}`;
+    body.style.background = 'linear-gradient(180deg, var(--base), var(--loss)';
 }

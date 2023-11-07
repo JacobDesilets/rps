@@ -10,7 +10,7 @@
 
 body {
     font-family: 'Inter', sans-serif, 'Segoe UI Emoji';
-    background-color: var(--base);
+    background: linear-gradient(180deg, var(--base), var(--accent-dk));
 }
 
 .center {
@@ -38,21 +38,23 @@ body {
 
 .btn { 
     border-radius: var(--rounded-corner);
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     background: var(--base);
     border: 2px solid var(--accent-lt);
-    box-shadow: 2px 2px var(--accent-lt);
+    box-shadow: 3px 3px var(--accent-lt);
     font-size: 4rem;
     width: 10rem;
+    height: 8rem;
+    transition: 0.1s;
 }
 
 .btn:hover{
-    background: var(--win);
+    font-size: 5rem;
 }
 
 .btn:active {
     box-shadow: none;
-    transform: translate(2px, 2px);
+    transform: translate(3px, 3px);
 }
 
 .comp-choice {
@@ -64,6 +66,8 @@ body {
     font-size: 4rem;
     display:flex;
     justify-content: center;
+    align-items: center;
+    height:8rem;
 }
 
 .grid-container {
@@ -78,10 +82,10 @@ body {
 }
 
 .grid-item {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding:1rem;
+    padding: 1rem;
     overflow: hidden;
 }
 
@@ -93,6 +97,10 @@ body {
     background: var(--loss);
 }
 
+.draw {
+    background: var(--accent-dk);
+}
+
 h1{
     text-align: center;
     color:var(--accent-dk);
@@ -101,3 +109,7 @@ h1{
 .result {
     font-size: 4rem;
 }
+
+@media screen and (max-width: 480px) {
+    .grid-item{font-size: 3rem;}
+  }
