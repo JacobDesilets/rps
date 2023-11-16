@@ -1,6 +1,10 @@
-let w = 0;
-let l = 0;
-let d = 0;
+sessionStorage.setItem('wins', 0);
+sessionStorage.setItem('losses', 0);
+sessionStorage.setItem('draws', 0);
+
+let w = Number(sessionStorage.getItem('wins'));
+let l = Number(sessionStorage.getItem('losses'));
+let d = Number(sessionStorage.getItem('draws'));
 
 // 0 rock
 // 1 paper
@@ -51,25 +55,41 @@ function rps(playerChoice) {
             break;
     }
 
-    winCounter.innerHTML = w;
-    lossCounter.innerHTML = l;
-    drawCounter.innerHTML = d;
+    winCounter.innerHTML = sessionStorage.getItem('wins');
+    lossCounter.innerHTML = sessionStorage.getItem('losses');
+    drawCounter.innerHTML = sessionStorage.getItem('draws');
 }
 
 function win(pc, cc) {
     w += 1;
     result.innerHTML = `${emojis[pc]} beats ${emojis[cc]}`;
     body.style.background = 'linear-gradient(180deg, var(--base), var(--win)';
+    sessionStorage.setItem('wins', w);
 }
 
 function tie(pc, cc) {
     d += 1;
     result.innerHTML = `${emojis[pc]} ties ${emojis[cc]}`;
     body.style.background = 'linear-gradient(180deg, var(--base), var(--accent-dk)';
+    sessionStorage.setItem('draws', d);
 }
 
 function lose(pc, cc) {
     l += 1;
     result.innerHTML = `${emojis[pc]} loses to ${emojis[cc]}`;
     body.style.background = 'linear-gradient(180deg, var(--base), var(--loss)';
+    sessionStorage.setItem('losses', l);
+}
+
+function reset() {
+    w = 0;
+    l = 0;
+    d = 0;
+    sessionStorage.setItem('wins', w);
+    sessionStorage.setItem('draws', d);
+    sessionStorage.setItem('losses', l);
+
+    winCounter.innerHTML = sessionStorage.getItem('wins');
+    lossCounter.innerHTML = sessionStorage.getItem('losses');
+    drawCounter.innerHTML = sessionStorage.getItem('draws');
 }

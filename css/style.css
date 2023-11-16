@@ -57,6 +57,28 @@ body {
     transform: translate(3px, 3px);
 }
 
+.reset {
+    border-radius: var(--rounded-corner);
+    /* padding: 10px 20px; */
+    background: var(--base);
+    border: 2px solid var(--accent-lt);
+    box-shadow: 3px 3px var(--accent-lt);
+    font-size: 1.5rem;
+    width: 7rem;
+    height: 4rem;
+    transition: 0.1s;
+}
+
+.reset:hover {
+    font-size: 2rem;
+}
+
+.reset:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+
 .comp-choice {
     width:10rem;
     border-radius: var(--rounded-corner);
@@ -79,6 +101,7 @@ body {
     border-radius: var(--rounded-corner);
     overflow: hidden;
     font-size: 4rem;
+    margin-bottom: 1rem;
 }
 
 .grid-item {
@@ -108,6 +131,12 @@ h1{
 
 .result {
     font-size: 4rem;
+}
+
+section {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media screen and (max-width: 480px) {
